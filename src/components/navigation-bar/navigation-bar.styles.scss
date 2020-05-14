@@ -1,6 +1,6 @@
 .navigation-bar {
     font-size: 24px;
-    background-color: white;
+    background-color: rgb(46, 84, 99);
 
     position: fixed;
     z-index: 1;
@@ -8,10 +8,15 @@
     top: 0;
     left: 0;
     height: 50px;
-
+    display: flex;
+    flex-direction: row; 
+    justify-content: flex-end;
 }
 
 .option-link {
-    margin: 0 ;
     cursor: pointer;
+}
+
+.item {
+    margin: 15px;
 }

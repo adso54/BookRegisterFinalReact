@@ -4,18 +4,18 @@ import './navigation-bar.styles.scss';
 const NavigationBar = ({onRouteChange, user}) => {
     const {signIn, name} = user;
     return (
-        <nav className="navigation-bar" >
+        <nav  >
             {signIn ? 
-                <div>
-                    <p>Hi {name}!</p>
-                    <p className="option-link" onClick={() => onRouteChange('signOut')}>Sign out</p>
+                <div className="navigation-bar">
+                    <p className="item">Hi {name}!</p>
+                    <p className="item option-link" onClick={() => onRouteChange('signOut')}>Sign out</p>
                 </div>
             : 
-                <div>
-                    <p className="option-link" onClick={() => onRouteChange('signIn')}
+                <div className="navigation-bar">
+                    <p className="item option-link" onClick={() => onRouteChange('signIn')}
                     >Sign in                
                     </p>
-                    <p className="option-link" onClick={() => onRouteChange('register')}
+                    <p className="item option-link" onClick={() => onRouteChange('register')}
                     >Register                
                     </p>
                 </div>

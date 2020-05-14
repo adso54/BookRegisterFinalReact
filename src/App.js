@@ -17,27 +17,43 @@ class App extends React.Component {
         email: '', 
         name: ''
       }
-
     }
   }
   
   componentDidMount(){
-    this.onRouteChange(this.state.activeRoute)
+    this.checkLocalStorage()
+    .then(()=>{
+      this.onRouteChange(this.state.activeRoute)
+    })
+    
+  }
+
+  checkLocalStorage = async () => {
+    return new Promise((resolve, reject) => {
+      if(!this.state.user.signIn && localStorage.getItem('bookRegisterName') && localStorage.getItem('bookRegisterEmail')){
+        this.setState({
+         activeRoute: 'homePage',
+         user: {
+           signIn: true,
+           name: localStorage.getItem('bookRegisterName'),
+           email: localStorage.getItem('bookRegisterEmail')
+       }})
+       resolve(true);
+     }else{
+      resolve(false);
+     }
+    })
   }
 
   onRouteChange = (route) => {
-    console.log(route)
     if(route === 'signOut') {
-      this.setState({user: {
-        signIn: false,
-        name: '',
-        email: ''
-      }})
+      this.signOut()
+      this.setState({activeRoute: 'signIn'})
+    }else{
+      if(!this.state.user.signIn && route !== 'register' ) route='signIn';
+        this.setState({activeRoute: route})
     }
-    if(!this.state.user.signIn && route !== 'register' ) route='signIn';
-    console.log(route)
-    this.setState({activeRoute: route})
-}
+  }
 
   loadUser = (user) =>{
     this.setState(
@@ -49,6 +65,20 @@ class App extends React.Component {
         }
       }
      )
+     localStorage.setItem('bookRegisterName', user.name)
+     localStorage.setItem('bookRegisterEmail', user.email)
+  }
+
+  signOut = () => {
+    return new Promise((resolve, reject) => {
+        this.setState({user: {
+          signIn: false,
+          name: '',
+          email: ''
+        }})
+        localStorage.removeItem('bookRegisterName');
+        localStorage.removeItem('bookRegisterEmail');
+    })
   }
 
   render(){
