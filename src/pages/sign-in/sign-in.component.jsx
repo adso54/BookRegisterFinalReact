@@ -1,5 +1,6 @@
 import React from 'react';
 import './sign-in.styles.scss';
+import ROUTES from '../../routes';
 
 
 class SignIn extends React.Component {
@@ -29,7 +30,7 @@ class SignIn extends React.Component {
         .then(user => {
             if(user){
                 this.props.loadUser(user);
-                this.props.onRouteChange('homePage');
+                this.props.onRouteChange(ROUTES.HOME_PAGE);
             }
         })
         .catch(err =>console.log(err));

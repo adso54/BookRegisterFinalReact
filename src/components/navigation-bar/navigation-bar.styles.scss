@@ -1,7 +1,11 @@
+.nav-group {
+    display: flex;
+    flex-direction: row; 
+     
+}
 .navigation-bar {
     font-size: 24px;
     background-color: rgb(46, 84, 99);
-
     position: fixed;
     z-index: 1;
     width: 100%;
@@ -10,7 +14,7 @@
     height: 50px;
     display: flex;
     flex-direction: row; 
-    justify-content: flex-end;
+    justify-content: space-between;
 }
 
 .option-link {
@@ -19,4 +23,14 @@
 
 .item {
     margin: 15px;
+}
+
+.right-menu {
+    order: 2;
+    justify-content: flex-end;
+}
+
+.left-menu {
+    order: 1;
+    justify-content: flex-start;
 }

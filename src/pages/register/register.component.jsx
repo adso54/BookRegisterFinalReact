@@ -1,5 +1,6 @@
 import React from 'react';
 import './register.styles.scss';
+import ROUTES from '../../routes';
 
 class Register extends React.Component{
     constructor(props){
@@ -30,7 +31,7 @@ class Register extends React.Component{
         .then(user => {
             if(user){
                 this.props.loadUser(user);
-                this.props.onRouteChange('homePage');
+                this.props.onRouteChange(ROUTES.HOME_PAGE);
             }
         })
         .catch(err =>console.log(err));

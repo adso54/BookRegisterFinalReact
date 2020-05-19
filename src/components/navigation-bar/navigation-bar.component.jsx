@@ -1,23 +1,33 @@
 import React from 'react';
 import './navigation-bar.styles.scss';
+import ROUTES from '../../routes';
 
 const NavigationBar = ({onRouteChange, user}) => {
     const {signIn, name} = user;
     return (
         <nav  >
             {signIn ? 
-                <div className="navigation-bar">
-                    <p className="item">Hi {name}!</p>
-                    <p className="item option-link" onClick={() => onRouteChange('signOut')}>Sign out</p>
-                </div>
+                (<div className="navigation-bar">
+                    <div className="nav-group right-menu">
+                        <p className="item">Cześć {name}!</p>
+                        <p className="item option-link" onClick={() => onRouteChange(ROUTES.SIGN_OUT)}>Wyloguj</p>
+                    </div>
+                    <div className="nav-group left-menu">
+                        <p className="item option-link" onClick={() => onRouteChange(ROUTES.ADD_BOOK)}>Dodaj książkę</p>
+                        <p className="item option-link" onClick={() => onRouteChange(ROUTES.ADD_TYPE)}>Dodaj typ</p>
+                        <p className="item option-link" onClick={() => onRouteChange(ROUTES.ADD_AUTHOR)}>Dodaj autora</p>
+                    </div>
+                </div>)   
             : 
                 <div className="navigation-bar">
-                    <p className="item option-link" onClick={() => onRouteChange('signIn')}
-                    >Sign in                
-                    </p>
-                    <p className="item option-link" onClick={() => onRouteChange('register')}
-                    >Register                
-                    </p>
+                    <div className="nav-group right-menu">
+                        <p className="item option-link" onClick={() => onRouteChange(ROUTES.SIGN_IN)}
+                        >Zaloguj               
+                        </p>
+                        <p className="item option-link" onClick={() => onRouteChange(ROUTES.REGISTER)}
+                        >Zarejestruj                
+                        </p>
+                    </div>
                 </div>
             }
            
