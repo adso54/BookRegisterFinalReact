@@ -5,7 +5,8 @@ const ROUTES = {
     REGISTER: 'REGISTER',
     ADD_BOOK: 'ADD_BOOK',
     ADD_TYPE: 'ADD_TYPE',
-    ADD_AUTHOR: 'ADD_AUTHOR'
+    ADD_AUTHOR: 'ADD_AUTHOR',
+    NEW_USER_BOOK: 'NEW_USER_BOOK'
 }
 
 export default ROUTES;

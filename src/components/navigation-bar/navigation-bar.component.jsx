@@ -16,6 +16,7 @@ const NavigationBar = ({onRouteChange, user}) => {
                         <p className="item option-link" onClick={() => onRouteChange(ROUTES.ADD_BOOK)}>Dodaj książkę</p>
                         <p className="item option-link" onClick={() => onRouteChange(ROUTES.ADD_TYPE)}>Dodaj typ</p>
                         <p className="item option-link" onClick={() => onRouteChange(ROUTES.ADD_AUTHOR)}>Dodaj autora</p>
+                        <p className="item option-link" onClick={() => onRouteChange(ROUTES.NEW_USER_BOOK)}>Dodaj nową książkę do swojej biblioteki</p>
                     </div>
                 </div>)   
             : 

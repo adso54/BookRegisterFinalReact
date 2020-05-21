@@ -2,12 +2,14 @@ import React from 'react';
 import './App.css';
 
 import NavigationBar from './components/navigation-bar/navigation-bar.component'
-import HomePage from './pages/home/home.component';
-import Register from './pages/register/register.component';
-import SignIn from './pages/sign-in/sign-in.component';
 import AddBook from './components/add-book/add-book.component';
 import AddType from './components/add-type/add-type.component';
 import AddAuthor from './components/add-author/add-author.component';
+
+import HomePage from './pages/home/home.component';
+import Register from './pages/register/register.component';
+import SignIn from './pages/sign-in/sign-in.component';
+import NewUserBook from './pages/new-user-book/new-user-book.component';
 
 import ROUTES from './routes';
 
@@ -101,6 +103,7 @@ class App extends React.Component {
           {(this.state.activeRoute===ROUTES.ADD_BOOK)?<AddBook onRouteChange={this.onRouteChange} user={this.state.user} />:null}
           {(this.state.activeRoute===ROUTES.ADD_TYPE)?<AddType onRouteChange={this.onRouteChange} />:null}
           {(this.state.activeRoute===ROUTES.ADD_AUTHOR)?<AddAuthor onRouteChange={this.onRouteChange} user={this.state.user}/>:null}
+          {(this.state.activeRoute===ROUTES.NEW_USER_BOOK)?<NewUserBook onRouteChange={this.onRouteChange} user={this.state.user}/>:null}
         </div>
       </div>
     );
